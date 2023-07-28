@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="prime"></h1>
+
+    <script>
+        let num = Number(prompt("Enter the number for authentication: ", 0));
+        let ans;
+        console.log(num);
+        if(!isNaN(num) && num >= 0){
+            let prime = getPrime(num);
+            if(prime){
+                ans = `Given number ${num} is a Prime number.`;
+            }else{
+                ans = `Given number ${num} is not a Prime number.`;
+            }
+
+        }
+        else{
+            ans = `Given input ${num} is not a Number.`;
+        }
+
+        alert(ans);
+        document.getElementById("prime").innerHTML = ans;
+
+        function getPrime(num){
+            if(num == 1 || num == 0){
+                return false;
+            }
+
+            for(let i=2;i*i<=num;i++){
+                if(num%i == 0){
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+    </script>
+</body>
+</html>
